@@ -1,0 +1,36 @@
+To run any of this code first load matlab on any ITL machine
+make sure to change directory to sw/ 
+this is important as some code saves output to out/
+and reads input from Dataset/ in some cases.
+
+Example invocation for question 1:
+
+I have generated an image as requested in Q1 using GIMP and it is in 'Dataset/Houssem.png'
+
+ICV_Q1_imRotate('Dataset/Houssem.png', 10,0);
+
+This will read image in 'input/Houssem.png'
+and Rotate it by 10 degrees display and return it.
+Should you want to save an image you can use matlab's in-built imwrite and in fact this is what i used to save the results manually
+imwrite(ICV_Q1_imRotate(blah,blah), 'out/OUTPUT.png');
+
+Example invocation question 2
+
+This question takes as input the name of the input image to filter and generates all the figures and plots as well as saves the ones attached in report.
+ICV_Q2_filter('Dataset/DatasetA/car-2.png')
+
+Example invocation question 3
+
+This is simply ICV_Q3_histogram()
+
+Possible Gotchas!
+
+Q1. Please note thae i saved the output manually for Question 1 using imwrite. ( the script doesn't save any images unlike other questions.
+
+Q2. whatever image you put in path in Q2 will overwrite the pre-computed output images
+that are attached in report. You can regenerate them by running Q2 with ICV_Q2_filter('Dataset/DatasetA/car-2.png').
+
+Q3 for saving the histograms with the right legends it was easier
+for me to load them in matlab and to save the plot using the GUI
+
+Pardon my lack of experience with matlab.

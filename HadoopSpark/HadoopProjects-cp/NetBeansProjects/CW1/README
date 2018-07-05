@@ -1,0 +1,15 @@
+
+The report is in :
+report/HadoopCW1.pdf
+The graphics loaded are also in that folder.
+
+code in src/:
+Q1 -> Part A
+Q2P1 -> Part B Q 1
+Q2P2 -> Part B Q 2
+Q3 -> Part C
+
+the ./build.sh runs all the map reduce tasks on any itl machine
+
+Datafiles extracted with getmerge from the runs and libreoffice docs are in output/
+

@@ -1,0 +1,25 @@
+aquatics	645
+athletics	174
+basketball	18
+boxing	11
+cycling	44
+equestrian	4
+football	9423
+hockey	3
+rugby sevens	1
+sailing	2
+shooting	14
+table tennis	32
+tennis	36
+weightlifting	8
+wrestling	37
+archery	1
+badminton	14
+canoe	1
+fencing	5
+golf	4
+gymnastics	178
+handball	6
+judo	55
+taekwondo	2
+volleyball	47

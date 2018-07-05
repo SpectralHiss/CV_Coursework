@@ -1,0 +1,3 @@
+in order to run a copy like on my local computer, you need to download the template and overwrite the contents of lab1.m and software/knnsearch.m
+
+This is to avoid having to zip the whole dataset and the generated data

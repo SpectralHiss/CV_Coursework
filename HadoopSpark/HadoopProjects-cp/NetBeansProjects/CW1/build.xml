@@ -1,0 +1,85 @@
+<project name="CW1" default="dist" basedir=".">
+	<description>
+        Coursework 1 project build file, builds 3 jars per question.
+    </description>
+	<!-- set global properties for this build -->
+    <property name="src-cw1" location="src/Q1" />
+	<property name="src-cw2P1" location="src/Q2P1" />
+	<property name="src-cw2P2" location="src/Q2P2" />
+	<property name="src-cw3P1" location="src/Q3P1" />
+	<property name="src-cw3P2" location="src/Q3P2" />
+
+	<property name="build-cw1" location="classes/Q1" />
+	<property name="build-cw2P1" location="classes/Q2P1" />
+	<property name="build-cw2P2" location="classes/Q2P2" />
+	<property name="build-cw3P1" location="classes/Q3P1" />
+	<property name="build-cw3P2" location="classes/Q3P2" />
+
+	<property name="dist" location="dist" />
+
+	<!--<property name="hadoop.version" value="2.0.0-mr1-cdh4.1.2" /> -->
+	<property name="hadoop.base.path" value="/usr/lib/hadoop/client/" />
+
+
+	<path id="classpath">
+		<fileset dir="${hadoop.base.path}">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+
+	<target name="init">
+		<!-- Create the time stamp -->
+		<tstamp />
+		<!-- Create the build directory structure used by compile -->
+		<mkdir dir="${build-cw1}" />
+		<mkdir dir="${build-cw2P1}" />
+		<mkdir dir="${build-cw2P2}" />
+		<mkdir dir="${build-cw3P1}" />
+		<mkdir dir="${build-cw3P2}" />
+	</target>
+
+	<target name="compile" depends="init" description="compile the source ">
+		<!-- Compile the java code from ${src} into ${build} -->
+		<property name="myclasspath" refid="classpath"/>
+		<echo message="Classpath = ${myclasspath}"/>
+		<javac srcdir="${src-cw1}" destdir="${build-cw1}" target="1.7">
+			<classpath  refid="classpath"/>
+		</javac>
+		<javac srcdir="${src-cw2P1}" destdir="${build-cw2P1}" target="1.7">
+			<classpath  refid="classpath"/>
+		</javac>
+
+		<javac srcdir="${src-cw2P2}" destdir="${build-cw2P2}" target="1.7">
+			<classpath  refid="classpath"/>
+		</javac>
+
+		<javac srcdir="${src-cw3P1}" destdir="${build-cw3P1}" target="1.7">
+			<classpath  refid="classpath"/>
+		</javac>
+		<javac srcdir="${src-cw3P2}" destdir="${build-cw3P2}" target="1.7">
+			<classpath  refid="classpath"/>
+		</javac>
+	</target>
+
+	<target name="dist" depends="compile" description="generate the distribution">
+		<!-- Create the distribution directory -->
+		<mkdir dir="${dist}" />
+
+		<!-- Put everything in ${build} into a jar file -->
+		<jar jarfile="${dist}/CW1-Q1.jar" basedir="${build-cw1}" />
+		<jar jarfile="${dist}/CW1-Q2P1.jar" basedir="${build-cw2P1}" />
+		<jar jarfile="${dist}/CW1-Q2P2.jar" basedir="${build-cw2P2}" />
+		<jar jarfile="${dist}/CW1-Q3P1.jar" basedir="${build-cw3P1}" />
+		<jar jarfile="${dist}/CW1-Q3P2.jar" basedir="${build-cw3P2}" />
+	</target>
+
+	<target name="clean" description="clean up">
+		<!-- Delete the ${build} and ${dist} directory trees -->
+		<delete dir="${build-cw1}" />
+		<delete dir="${build-cw2P1}" />
+		<delete dir="${build-cw2P2}" />
+		<delete dir="${build-cw3P1}" />
+		<delete dir="${build-cw3P2}" />
+		<delete dir="${dist}" />
+	</target>
+</project>
